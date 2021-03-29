@@ -1,10 +1,14 @@
+import { useModal } from "../ModalContext";
 import * as S from "./styles";
 import { HeaderProps } from "./types";
 
 const Header = (props: HeaderProps) => {
+  const { closeModal } = useModal();
+
   const handleClose = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
+    closeModal();
     props.onClose && props.onClose(event);
   };
 
