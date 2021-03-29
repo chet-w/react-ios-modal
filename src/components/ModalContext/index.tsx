@@ -46,12 +46,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     >
       {children}
       <AnimatePresence>
-        {Modal && (
-          <Fragment>
-            <Background />
-            {Modal}
-          </Fragment>
-        )}
+        {Modal && <Background>{Modal}</Background>}
       </AnimatePresence>
     </ModalContext.Provider>
   );

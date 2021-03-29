@@ -17,11 +17,13 @@ export const Background = styled(motion.div)`
   z-index: -1;
 `;
 
-export const animations = {
+export const variants = {
   closed: {
-    backdropFilter: "none"
+    backdropFilter: "none",
+    background: "rgba(255, 255, 255, 0.5)"
   },
   open: {
-    backdropFilter: "blur(5px)"
+    backdropFilter: "blur(5px)",
+    background: "rgba(255, 255, 255, 0)"
   }
 };

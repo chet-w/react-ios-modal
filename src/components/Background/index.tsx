@@ -5,7 +5,7 @@ const Background = (backgroundProps: BackgroundProps) => {
   return (
     <S.Background
       {...backgroundProps}
-      variants={S.animations}
+      variants={S.variants}
       initial="closed"
       animate="open"
       exit="closed"
