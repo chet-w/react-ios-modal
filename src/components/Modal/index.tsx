@@ -7,17 +7,21 @@ import Footer from "../Footer";
 
 const Modal = (props: ModalProps) => {
   return (
-    <S.Background>
-      <S.Modal>
-        <Header
-          title={props.title}
-          closable={props.closable}
-          onClose={props.onClose}
-        />
-        <Body>{props.children}</Body>
-        {props.footerOptions && <Footer options={props.footerOptions} />}
-      </S.Modal>
-    </S.Background>
+    <S.Modal
+      variants={S.variants}
+      transition={S.transition}
+      initial="closed"
+      animate="open"
+      exit="closed"
+    >
+      <Header
+        title={props.title}
+        closable={props.closable}
+        onClose={props.onClose}
+      />
+      <Body>{props.children}</Body>
+      {props.footerOptions && <Footer options={props.footerOptions} />}
+    </S.Modal>
   );
 };
 

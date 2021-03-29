@@ -1,11 +1,13 @@
 import { AnimatePresence } from "framer-motion";
 import {
   createContext,
+  Fragment,
   ReactElement,
   useContext,
   useEffect,
   useState
 } from "react";
+import Background from "../Background";
 import { ModalContextProps, ModalProviderProps } from "./types";
 
 const ModalContext = createContext<ModalContextProps>({
@@ -43,7 +45,14 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
       }}
     >
       {children}
-      <AnimatePresence>{Modal}</AnimatePresence>
+      <AnimatePresence>
+        {Modal && (
+          <Fragment>
+            <Background />
+            {Modal}
+          </Fragment>
+        )}
+      </AnimatePresence>
     </ModalContext.Provider>
   );
 };
