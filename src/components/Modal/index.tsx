@@ -9,9 +9,13 @@ const Modal = (props: ModalProps) => {
   return (
     <S.Background>
       <S.Modal>
-        <Header title="A modal" />
+        <Header
+          title={props.title}
+          closable={props.closable}
+          onClose={props.onClose}
+        />
         <Body>{props.children}</Body>
-        <Footer />
+        {props.footerOptions && <Footer options={props.footerOptions} />}
       </S.Modal>
     </S.Background>
   );
