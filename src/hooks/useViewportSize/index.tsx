@@ -7,11 +7,12 @@ const VIEWPORT_SIZES = modalTheme.breakpoints;
 const useViewportSize = (): ViewportSizeData => {
   const [deviceSize, setDeviceSize] = useState<DeviceSize>("sm");
   const [width, setWidth] = useState(VIEWPORT_SIZES.sm);
+  const [height, setHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(true);
 
   const handleResize = () => {
     if (typeof window !== "undefined") {
-      const { innerWidth } = window;
+      const { innerWidth, innerHeight } = window;
 
       if (innerWidth > VIEWPORT_SIZES.xs) {
         setDeviceSize("xs");
@@ -27,6 +28,7 @@ const useViewportSize = (): ViewportSizeData => {
       }
 
       setWidth(innerWidth);
+      setHeight(innerHeight);
       setIsMobile(innerWidth < VIEWPORT_SIZES.md);
     }
   };
@@ -41,6 +43,7 @@ const useViewportSize = (): ViewportSizeData => {
   return {
     deviceSize,
     width,
+    height,
     isMobile
   };
 };
