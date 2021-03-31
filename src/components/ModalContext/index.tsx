@@ -1,7 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import {
   createContext,
-  Fragment,
   ReactElement,
   useContext,
   useEffect,
@@ -11,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import Background from "../Background";
 import { modalTheme } from "../Theme";
 import { ModalContextProps, ModalProviderProps } from "./types";
+import * as S from "./styles";
 
 const ModalContext = createContext<ModalContextProps>({
   openModal: () => {},
@@ -47,7 +47,16 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
       }}
     >
       <ThemeProvider theme={modalTheme}>
-        {children}
+        <S.MainWrapper
+          variants={S.variants}
+          initial="normal"
+          animate={isOpen ? "pushed" : "normal"}
+          transition={{
+            duration: 0.3
+          }}
+        >
+          {children}
+        </S.MainWrapper>
         <AnimatePresence>
           {Modal && <Background>{Modal}</Background>}
         </AnimatePresence>
