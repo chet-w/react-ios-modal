@@ -11,6 +11,11 @@ export const Modal = styled(motion.section)`
   padding: 0;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+    height: 100vh;
+    margin: 32px auto 0 auto;
+  }
 `;
 
 export const variants = {

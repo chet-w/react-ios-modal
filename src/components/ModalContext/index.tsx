@@ -7,7 +7,9 @@ import {
   useEffect,
   useState
 } from "react";
+import { ThemeProvider } from "styled-components";
 import Background from "../Background";
+import { modalTheme } from "../Theme";
 import { ModalContextProps, ModalProviderProps } from "./types";
 
 const ModalContext = createContext<ModalContextProps>({
@@ -44,10 +46,12 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
         closeModal
       }}
     >
-      {children}
-      <AnimatePresence>
-        {Modal && <Background>{Modal}</Background>}
-      </AnimatePresence>
+      <ThemeProvider theme={modalTheme}>
+        {children}
+        <AnimatePresence>
+          {Modal && <Background>{Modal}</Background>}
+        </AnimatePresence>
+      </ThemeProvider>
     </ModalContext.Provider>
   );
 };
