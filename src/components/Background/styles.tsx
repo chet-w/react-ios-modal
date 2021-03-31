@@ -20,10 +20,10 @@ export const Background = styled(motion.div)`
 export const variants = {
   closed: {
     backdropFilter: "none",
-    background: "rgba(255, 255, 255, 0.5)"
+    background: "rgba(255, 255, 255, 0)"
   },
   open: {
     backdropFilter: "blur(5px)",
-    background: "rgba(255, 255, 255, 0)"
+    background: "rgba(255, 255, 255, 0.5)"
   }
 };
