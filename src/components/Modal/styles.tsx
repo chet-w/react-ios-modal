@@ -24,7 +24,7 @@ export const variants = {
     opacity: 1
   },
   closed: {
-    y: "100%",
+    y: typeof window !== "undefined" ? window.innerHeight : 100,
     opacity: 0
   }
 };
