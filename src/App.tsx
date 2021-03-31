@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Modal from "./components/Modal";
+import { useModal } from "./components/ModalContext";
 
 function App() {
+  const DemoModal = () => (
+    <Modal
+      title="A demo modal"
+      closable
+      onClose={(event) => console.log("onClose!")}
+      clickOutsideToClose
+      footerOptions={[
+        {
+          content: "OK",
+          onClick: (event) => console.log(event)
+        },
+        {
+          content: "Maybe",
+          onClick: (event) => console.log(event)
+        },
+        {
+          content: "Cancel",
+          onClick: (event) => console.log(event)
+        }
+      ]}
+    >
+      <p>Content!</p>
+    </Modal>
+  );
+
+  const { openModal } = useModal();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <button type="button" onClick={() => openModal(<DemoModal />)}>
+        asdas
+      </button>
     </div>
   );
 }
