@@ -30,7 +30,7 @@ function App() {
   const { openModal } = useModal();
 
   return (
-    <div className="app">
+    <div className="app" style={{ background: "red", height: "100vh" }}>
       <button type="button" onClick={() => openModal(<DemoModal />)}>
         asdas
       </button>
