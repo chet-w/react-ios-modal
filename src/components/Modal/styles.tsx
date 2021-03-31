@@ -13,7 +13,7 @@ export const Modal = styled(motion.section)`
   flex-direction: column;
 
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    height: 100vh;
+    height: calc(100vh - 32px);
     margin: 32px auto 0 auto;
   }
 `;
