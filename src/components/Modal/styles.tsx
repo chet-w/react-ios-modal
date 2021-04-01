@@ -15,6 +15,7 @@ export const Modal = styled(motion.section)`
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     height: calc(100vh - 32px);
     margin: 32px auto 0 auto;
+    border-radius: 16px 16px 0 0;
   }
 `;
 

@@ -15,7 +15,7 @@ const Modal = (props: ModalProps) => {
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
   const handleDragEnd = (dragInfo: PanInfo) => {
-    const { offset, velocity } = dragInfo;
+    const { offset } = dragInfo;
     if (offset.y > CLOSE_ON_DRAG_TRESHHOLD) {
       closeModal();
     }
