@@ -30,7 +30,7 @@ export const CloseButton = styled.button`
 `;
 
 export const Title = styled.h4`
-  font-size: 40px;
+  font-size: 24px;
   margin: 0;
 
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
