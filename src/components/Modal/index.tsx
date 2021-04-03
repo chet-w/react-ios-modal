@@ -5,7 +5,7 @@ import Header from "../Header";
 import Body from "../Body";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
-import { useFocusTrap, useViewportSize } from "../../hooks";
+import { useFocusTrap, useKeyBinding, useViewportSize } from "../../hooks";
 import { Fragment, useRef } from "react";
 
 const Modal = (props: ModalProps) => {
@@ -22,6 +22,10 @@ const Modal = (props: ModalProps) => {
       closeModal();
     }
   };
+
+  useKeyBinding("Escape", () => {
+    closeModal();
+  });
 
   return (
     <S.Modal
