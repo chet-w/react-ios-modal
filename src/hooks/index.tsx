@@ -1,4 +1,5 @@
 import useViewportSize from "./useViewportSize";
 import useFocusTrap from "./useFocusTrap";
+import useKeyBinding from "./useKeyBinding";
 
-export { useViewportSize, useFocusTrap };
+export { useViewportSize, useFocusTrap, useKeyBinding };

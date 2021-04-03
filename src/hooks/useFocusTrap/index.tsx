@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from "react";
+import { useKeyBinding } from "..";
 
 const useFocusTrap = (
   elementRef: React.MutableRefObject<null | HTMLElement>
@@ -18,35 +19,32 @@ const useFocusTrap = (
     }
   };
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent) => {
-      let focusableElementsInComponent = getKeyboardFocusableElements(
-        elementRef.current
-      );
-      if (event.key !== "Tab" || !focusableElementsInComponent.length) {
-        return;
+  useKeyBinding("Tab", (event) => {
+    let focusableElementsInComponent = getKeyboardFocusableElements(
+      elementRef.current
+    );
+    if (!focusableElementsInComponent.length) {
+      return;
+    }
+
+    const firstFocusableElement = focusableElementsInComponent[0];
+    const lastFocusableElement =
+      focusableElementsInComponent[focusableElementsInComponent.length - 1];
+
+    if (event.shiftKey) {
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus();
+        event.preventDefault();
       }
-
-      const firstFocusableElement = focusableElementsInComponent[0];
-      const lastFocusableElement =
-        focusableElementsInComponent[focusableElementsInComponent.length - 1];
-
-      if (event.shiftKey) {
-        if (document.activeElement === firstFocusableElement) {
-          lastFocusableElement.focus();
-          event.preventDefault();
-        }
-      } else {
-        if (document.activeElement === lastFocusableElement) {
-          firstFocusableElement.focus();
-          event.preventDefault();
-        }
+    } else {
+      if (document.activeElement === lastFocusableElement) {
+        firstFocusableElement.focus();
+        event.preventDefault();
       }
-    },
-    [elementRef]
-  );
+    }
+  });
 
-  const focusHeader = (): void => {
+  const focusHeader = useCallback((): void => {
     if (elementRef.current) {
       const target = elementRef.current;
       const targetLabel = target.getAttribute("aria-labelledby");
@@ -57,17 +55,14 @@ const useFocusTrap = (
         ) as HTMLElement).focus();
       }
     }
-  };
+  }, [elementRef]);
 
   useEffect(() => {
     if (!elementRef) {
       return;
     }
     focusHeader();
-    document.addEventListener("keydown", (event) => handleKeyDown(event));
-    return () =>
-      document.removeEventListener("keydown", (event) => handleKeyDown(event));
-  }, [elementRef, handleKeyDown]);
+  }, [elementRef, focusHeader]);
 };
 
 export default useFocusTrap;
