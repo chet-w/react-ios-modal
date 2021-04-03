@@ -1,4 +1,4 @@
-import useViewportSize from "../../hooks/useViewportSize";
+import { useViewportSize } from "../../hooks";
 import * as S from "./styles";
 import { BackgroundProps } from "./types";
 

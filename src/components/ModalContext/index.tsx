@@ -11,7 +11,7 @@ import Background from "../Background";
 import { modalTheme } from "../Theme";
 import { ModalContextProps, ModalProviderProps } from "./types";
 import * as S from "./styles";
-import useViewportSize from "../../hooks/useViewportSize";
+import { useViewportSize } from "../../hooks";
 
 const ModalContext = createContext<ModalContextProps>({
   openModal: () => {},

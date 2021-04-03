@@ -5,11 +5,14 @@ import Header from "../Header";
 import Body from "../Body";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
-import useViewportSize from "../../hooks/useViewportSize";
+import { useFocusTrap, useViewportSize } from "../../hooks";
+import { useRef } from "react";
 
 const Modal = (props: ModalProps) => {
+  const ModalRef = useRef(null);
   const { closeModal } = useModal();
   const { height } = useViewportSize();
+  useFocusTrap(ModalRef);
 
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
@@ -31,6 +34,7 @@ const Modal = (props: ModalProps) => {
       dragConstraints={{ top: 5, bottom: 5 }}
       dragElastic={{ top: 0.05, bottom: 0.1 }}
       onDragEnd={(_, info) => handleDragEnd(info)}
+      ref={ModalRef}
     >
       <Header
         title={props.title}
