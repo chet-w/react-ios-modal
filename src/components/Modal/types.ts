@@ -6,4 +6,5 @@ export interface ModalProps {
   closable?: boolean
   onClose?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   clickOutsideToClose?: boolean;
+  id: string;
 }

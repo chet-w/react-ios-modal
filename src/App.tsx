@@ -4,6 +4,7 @@ import { useModal } from "./components/ModalContext";
 function App() {
   const DemoModal = () => (
     <Modal
+      id="demo-modal"
       title="A demo modal"
       closable
       onClose={(event) => console.log("onClose!")}

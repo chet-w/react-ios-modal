@@ -35,11 +35,15 @@ const Modal = (props: ModalProps) => {
       dragElastic={{ top: 0.05, bottom: 0.1 }}
       onDragEnd={(_, info) => handleDragEnd(info)}
       ref={ModalRef}
+      aria-labelledby={`${props.id}_header`}
+      role="dialog"
+      aria-modal="true"
     >
       <Header
         title={props.title}
         closable={props.closable}
         onClose={props.onClose}
+        id={`${props.id}_header`}
       />
       <Body>
         <Fragment>{props.children}</Fragment>

@@ -33,6 +33,11 @@ export const Title = styled.h4`
   font-size: 24px;
   margin: 0;
 
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
     font-size: 20px;
   }

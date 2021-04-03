@@ -46,10 +46,24 @@ const useFocusTrap = (
     [elementRef]
   );
 
+  const focusHeader = (): void => {
+    if (elementRef.current) {
+      const target = elementRef.current;
+      const targetLabel = target.getAttribute("aria-labelledby");
+      console.log(targetLabel);
+      if (targetLabel) {
+        (elementRef.current.querySelector(
+          `#${targetLabel}`
+        ) as HTMLElement).focus();
+      }
+    }
+  };
+
   useEffect(() => {
     if (!elementRef) {
       return;
     }
+    focusHeader();
     document.addEventListener("keydown", (event) => handleKeyDown(event));
     return () =>
       document.removeEventListener("keydown", (event) => handleKeyDown(event));

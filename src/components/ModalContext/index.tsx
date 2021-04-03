@@ -4,6 +4,7 @@ import {
   ReactElement,
   useContext,
   useEffect,
+  useRef,
   useState
 } from "react";
 import { ThemeProvider } from "styled-components";
@@ -26,12 +27,21 @@ export const useModal = () => {
 export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [Modal, setModal] = useState<null | ReactElement>(null);
+  const LastFocusedElement = useRef<null | HTMLElement>(null);
 
   const { isMobile } = useViewportSize();
 
   useEffect(() => {
     setIsOpen(Boolean(Modal));
   }, [Modal]);
+
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     LastFocusedElement.current = document.activeElement as HTMLElement;
+  //   } else {
+  //     LastFocusedElement.current?.focus();
+  //   }
+  // }, [isOpen]);
 
   const openModal = (modal: ReactElement) => {
     setModal(modal);
