@@ -10,6 +10,12 @@ function App() {
       clickOutsideToClose
     >
       <p>Content!</p>
+      <button>one</button>
+      <button>one</button>
+      <button>one</button>
+      <button>one</button>
+      <button>one</button>
+      <button>one</button>
     </Modal>
   );
 

@@ -6,7 +6,7 @@ import Body from "../Body";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
 import { useFocusTrap, useViewportSize } from "../../hooks";
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 
 const Modal = (props: ModalProps) => {
   const ModalRef = useRef(null);
@@ -41,7 +41,9 @@ const Modal = (props: ModalProps) => {
         closable={props.closable}
         onClose={props.onClose}
       />
-      <Body>{props.children}</Body>
+      <Body>
+        <Fragment>{props.children}</Fragment>
+      </Body>
     </S.Modal>
   );
 };
