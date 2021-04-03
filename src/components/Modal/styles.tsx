@@ -11,6 +11,12 @@ export const Modal = styled(motion.section)`
   padding: 0;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
+    height: calc(100vh - 32px);
+    margin: 32px auto 0 auto;
+    border-radius: 16px 16px 0 0;
+  }
 `;
 
 export const variants = {
@@ -19,7 +25,7 @@ export const variants = {
     opacity: 1
   },
   closed: {
-    y: "100%",
+    y: typeof window !== "undefined" ? window.innerHeight : 100,
     opacity: 0
   }
 };

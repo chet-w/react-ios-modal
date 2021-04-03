@@ -9,12 +9,10 @@ export const Background = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: -1;
+  z-index: 10000;
 `;
 
 export const variants = {
@@ -25,5 +23,14 @@ export const variants = {
   open: {
     backdropFilter: "blur(5px)",
     background: "rgba(255, 255, 255, 0.5)"
+  }
+};
+
+export const mobileVariants = {
+  closed: {
+    background: "rgba(0, 0, 0, 0)"
+  },
+  open: {
+    background: "rgba(0, 0, 0, 0.5)"
   }
 };

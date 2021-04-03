@@ -6,5 +6,5 @@ export const Footer = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 2px grey solid;
+  border-top: 1px #efefef solid;
 `;
