@@ -14,10 +14,10 @@ const Header = (props: HeaderProps) => {
 
   return (
     <S.Header>
-      <S.Title>{props.title}</S.Title>
       <S.CloseButton onClick={(event) => handleClose(event)}>
         &times;
       </S.CloseButton>
+      <S.Title>{props.title}</S.Title>
     </S.Header>
   );
 };

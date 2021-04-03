@@ -8,20 +8,6 @@ function App() {
       closable
       onClose={(event) => console.log("onClose!")}
       clickOutsideToClose
-      footerOptions={[
-        {
-          content: "OK",
-          onClick: (event) => console.log(event)
-        },
-        {
-          content: "Maybe",
-          onClick: (event) => console.log(event)
-        },
-        {
-          content: "Cancel",
-          onClick: (event) => console.log(event)
-        }
-      ]}
     >
       <p>Content!</p>
     </Modal>

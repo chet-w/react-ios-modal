@@ -3,7 +3,6 @@ import { ModalProps } from "./types";
 
 import Header from "../Header";
 import Body from "../Body";
-import Footer from "../Footer";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
 import useViewportSize from "../../hooks/useViewportSize";
@@ -39,7 +38,6 @@ const Modal = (props: ModalProps) => {
         onClose={props.onClose}
       />
       <Body>{props.children}</Body>
-      {props.footerOptions && <Footer options={props.footerOptions} />}
     </S.Modal>
   );
 };

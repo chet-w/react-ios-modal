@@ -7,6 +7,7 @@ declare module "styled-components" {
     colors: {
       light: string;
       dark: string;
+      primary: string;
     };
     breakpoints: {
       xs: number;
