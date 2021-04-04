@@ -5,7 +5,12 @@ import Header from "../Header";
 import Body from "../Body";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
-import { useFocusTrap, useKeyBinding, useViewportSize } from "../../hooks";
+import {
+  useFocusTrap,
+  useKeyBinding,
+  useScrollFreeze,
+  useViewportSize
+} from "../../hooks";
 import { Fragment, useRef } from "react";
 
 const Modal = (props: ModalProps) => {
@@ -13,6 +18,7 @@ const Modal = (props: ModalProps) => {
   const { closeModal } = useModal();
   const { height } = useViewportSize();
   useFocusTrap(ModalRef);
+  useScrollFreeze();
 
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
