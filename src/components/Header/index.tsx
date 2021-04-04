@@ -1,6 +1,7 @@
 import { useModal } from "../ModalContext";
 import * as S from "./styles";
 import { HeaderProps } from "./types";
+import { X } from "phosphor-react";
 
 const Header = (props: HeaderProps) => {
   const { closeModal } = useModal();
@@ -21,7 +22,7 @@ const Header = (props: HeaderProps) => {
         onClick={(event) => handleClose(event)}
         aria-label="Close modal"
       >
-        &times;
+        <X size={24} weight="bold" />
       </S.CloseButton>
     </S.Header>
   );
