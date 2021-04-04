@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="app" style={{ background: "red", height: "100vh" }}>
       <button type="button" onClick={() => openModal(<DemoModal />)}>
-        asdas
+        Open modal
       </button>
     </div>
   );
