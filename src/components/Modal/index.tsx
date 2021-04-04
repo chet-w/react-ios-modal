@@ -20,7 +20,7 @@ const Modal = (props: ModalProps) => {
   const { height } = useViewportSize();
   useFocusTrap(ModalRef);
   useScrollFreeze();
-  useClickOutside(ModalRef, () => closeModal());
+  useClickOutside(ModalRef, () => props.clickOutsideToClose && closeModal());
 
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
