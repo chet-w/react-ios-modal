@@ -35,20 +35,14 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     setIsOpen(Boolean(Modal));
   }, [Modal]);
 
-  // useEffect(() => {
-  //   if (isOpen) {
-  //     LastFocusedElement.current = document.activeElement as HTMLElement;
-  //   } else {
-  //     LastFocusedElement.current?.focus();
-  //   }
-  // }, [isOpen]);
-
   const openModal = (modal: ReactElement) => {
+    LastFocusedElement.current = document.activeElement as HTMLElement;
     setModal(modal);
   };
 
   const closeModal = () => {
     setModal(null);
+    LastFocusedElement.current?.focus();
   };
 
   return (
