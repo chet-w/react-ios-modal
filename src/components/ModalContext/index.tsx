@@ -4,6 +4,7 @@ import {
   ReactElement,
   useContext,
   useEffect,
+  useRef,
   useState
 } from "react";
 import { ThemeProvider } from "styled-components";
@@ -11,7 +12,7 @@ import Background from "../Background";
 import { modalTheme } from "../Theme";
 import { ModalContextProps, ModalProviderProps } from "./types";
 import * as S from "./styles";
-import useViewportSize from "../../hooks/useViewportSize";
+import { useViewportSize } from "../../hooks";
 
 const ModalContext = createContext<ModalContextProps>({
   openModal: () => {},
@@ -26,6 +27,7 @@ export const useModal = () => {
 export const ModalProvider = ({ children }: ModalProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [Modal, setModal] = useState<null | ReactElement>(null);
+  const LastFocusedElement = useRef<null | HTMLElement>(null);
 
   const { isMobile } = useViewportSize();
 
@@ -34,11 +36,13 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
   }, [Modal]);
 
   const openModal = (modal: ReactElement) => {
+    LastFocusedElement.current = document.activeElement as HTMLElement;
     setModal(modal);
   };
 
   const closeModal = () => {
     setModal(null);
+    LastFocusedElement.current?.focus();
   };
 
   return (

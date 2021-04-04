@@ -14,8 +14,13 @@ const Header = (props: HeaderProps) => {
 
   return (
     <S.Header>
-      <S.Title>{props.title}</S.Title>
-      <S.CloseButton onClick={(event) => handleClose(event)}>
+      <S.Title id={props.id} tabIndex={0}>
+        {props.title}
+      </S.Title>
+      <S.CloseButton
+        onClick={(event) => handleClose(event)}
+        aria-label="Close modal"
+      >
         &times;
       </S.CloseButton>
     </S.Header>

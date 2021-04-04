@@ -3,7 +3,8 @@ import { DefaultTheme } from "styled-components";
 export const modalTheme: DefaultTheme = {
   colors: {
     light: "white",
-    dark: "grey"
+    dark: "grey",
+    primary: "#06c",
   },
   breakpoints: {
     xs: 425,

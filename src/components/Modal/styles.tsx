@@ -17,6 +17,11 @@ export const Modal = styled(motion.section)`
     margin: 32px auto 0 auto;
     border-radius: 16px 16px 0 0;
   }
+
+  *:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+  }
 `;
 
 export const variants = {

@@ -3,14 +3,24 @@ import { ModalProps } from "./types";
 
 import Header from "../Header";
 import Body from "../Body";
-import Footer from "../Footer";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
-import useViewportSize from "../../hooks/useViewportSize";
+import {
+  useClickOutside,
+  useFocusTrap,
+  useKeyBinding,
+  useScrollFreeze,
+  useViewportSize
+} from "../../hooks";
+import { Fragment, useRef } from "react";
 
 const Modal = (props: ModalProps) => {
+  const ModalRef = useRef(null);
   const { closeModal } = useModal();
   const { height } = useViewportSize();
+  useFocusTrap(ModalRef);
+  useScrollFreeze();
+  useClickOutside(ModalRef, () => props.clickOutsideToClose && closeModal());
 
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
@@ -20,6 +30,10 @@ const Modal = (props: ModalProps) => {
       closeModal();
     }
   };
+
+  useKeyBinding("Escape", () => {
+    closeModal();
+  });
 
   return (
     <S.Modal
@@ -32,14 +46,20 @@ const Modal = (props: ModalProps) => {
       dragConstraints={{ top: 5, bottom: 5 }}
       dragElastic={{ top: 0.05, bottom: 0.1 }}
       onDragEnd={(_, info) => handleDragEnd(info)}
+      ref={ModalRef}
+      aria-labelledby={`${props.id}_header`}
+      role="dialog"
+      aria-modal="true"
     >
       <Header
         title={props.title}
         closable={props.closable}
         onClose={props.onClose}
+        id={`${props.id}_header`}
       />
-      <Body>{props.children}</Body>
-      {props.footerOptions && <Footer options={props.footerOptions} />}
+      <Body>
+        <Fragment>{props.children}</Fragment>
+      </Body>
     </S.Modal>
   );
 };
