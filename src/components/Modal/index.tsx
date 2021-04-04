@@ -6,6 +6,7 @@ import Body from "../Body";
 import { useModal } from "../ModalContext";
 import { PanInfo } from "framer-motion";
 import {
+  useClickOutside,
   useFocusTrap,
   useKeyBinding,
   useScrollFreeze,
@@ -19,6 +20,7 @@ const Modal = (props: ModalProps) => {
   const { height } = useViewportSize();
   useFocusTrap(ModalRef);
   useScrollFreeze();
+  useClickOutside(ModalRef, () => closeModal());
 
   const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
 
