@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 export const Modal = styled(motion.section)`
   width: 720px;
   min-height: 75vh;
-  /* height: calc(100% - 32px); */
-  height: 100%;
   background: white;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
   margin: 12.5vh auto 0 auto;
