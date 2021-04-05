@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Background = styled(motion.div)`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -13,6 +13,7 @@ export const Background = styled(motion.div)`
   justify-content: center;
   align-items: flex-start;
   z-index: 10000;
+  overflow: hidden;
 `;
 
 export const variants = {

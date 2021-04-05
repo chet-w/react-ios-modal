@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 export const Modal = styled(motion.section)`
   width: 720px;
   min-height: 75vh;
+  /* height: calc(100% - 32px); */
   background: white;
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
   margin: 12.5vh auto 0 auto;
@@ -11,9 +12,10 @@ export const Modal = styled(motion.section)`
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    height: calc(100vh - 32px);
+    height: calc(100% - 32px);
     margin: 32px auto 0 auto;
     border-radius: 16px 16px 0 0;
   }
