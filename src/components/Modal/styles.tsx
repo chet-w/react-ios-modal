@@ -40,7 +40,7 @@ export const variants = {
 };
 
 export const transition = {
-  damping: 20,
+  damping: 22,
   restDelta: 0.001,
   stiffness: 180,
   type: "spring"
