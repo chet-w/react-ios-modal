@@ -22,7 +22,7 @@ const Modal = (props: ModalProps) => {
   useScrollFreeze();
   useClickOutside(ModalRef, () => props.clickOutsideToClose && closeModal());
 
-  const CLOSE_ON_DRAG_TRESHHOLD = height / 2;
+  const CLOSE_ON_DRAG_TRESHHOLD = height / 8;
 
   const handleDragEnd = (dragInfo: PanInfo) => {
     const { offset } = dragInfo;
@@ -43,8 +43,8 @@ const Modal = (props: ModalProps) => {
       animate="open"
       exit="closed"
       drag="y"
-      dragConstraints={{ top: 5, bottom: 5 }}
-      dragElastic={{ top: 0.05, bottom: 0.1 }}
+      dragConstraints={{ top: 5, bottom: height / 3 }}
+      dragElastic={{ top: 0.05, bottom: 0.5 }}
       onDragEnd={(_, info) => handleDragEnd(info)}
       ref={ModalRef}
       aria-labelledby={`${props.id}_header`}

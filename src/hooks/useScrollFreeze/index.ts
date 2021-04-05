@@ -4,7 +4,7 @@ const useScrollFreeze = (target: HTMLElement = document.body): void => {
 
   const freeze = (target: HTMLElement) => {
     target.style.overflow = "hidden";
-    target.style.height = "100vh";
+    target.style.height = "100%";
   };
 
   const unfreeze = (target: HTMLElement) => {

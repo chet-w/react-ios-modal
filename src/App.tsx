@@ -23,7 +23,7 @@ function App() {
   const { openModal } = useModal();
 
   return (
-    <div className="app" style={{ background: "red", height: "100vh" }}>
+    <div className="app">
       <button type="button" onClick={() => openModal(<DemoModal />)}>
         Open modal
       </button>

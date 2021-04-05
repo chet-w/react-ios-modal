@@ -11,9 +11,11 @@ export const Modal = styled(motion.section)`
   padding: 0;
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 
   @media (max-width: ${(props) => props.theme.breakpoints.sm}px) {
-    height: calc(100vh - 32px);
+    height: calc(100% - 32px);
+    height: 100%;
     margin: 32px auto 0 auto;
     border-radius: 16px 16px 0 0;
   }
@@ -30,13 +32,13 @@ export const variants = {
     opacity: 1
   },
   closed: {
-    y: typeof window !== "undefined" ? window.innerHeight : 100,
+    y: 400,
     opacity: 0
   }
 };
 
 export const transition = {
-  damping: 20,
+  damping: 22,
   restDelta: 0.001,
   stiffness: 180,
   type: "spring"
