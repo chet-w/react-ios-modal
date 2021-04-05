@@ -65,7 +65,7 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
           {children}
         </S.MainWrapper>
         <AnimatePresence>
-          {Modal && <Background>{Modal}</Background>}
+          {Modal && <Background isMobile={isMobile}>{Modal}</Background>}
         </AnimatePresence>
       </ThemeProvider>
     </ModalContext.Provider>
