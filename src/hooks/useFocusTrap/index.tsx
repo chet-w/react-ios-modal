@@ -48,7 +48,6 @@ const useFocusTrap = (
     if (elementRef.current) {
       const target = elementRef.current;
       const targetLabel = target.getAttribute("aria-labelledby");
-      console.log(targetLabel);
       if (targetLabel) {
         (elementRef.current.querySelector(
           `#${targetLabel}`

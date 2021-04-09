@@ -1,10 +1,4 @@
-import {
-  fireEvent,
-  getByTestId,
-  prettyDOM,
-  render,
-  waitFor
-} from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Modal from "../";
 import { ModalProps } from "../types";
 import WithTheme from "../../../test-utilities/WithTheme";
