@@ -2,6 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import {
   createContext,
   ReactElement,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -35,15 +36,18 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
     setIsOpen(Boolean(Modal));
   }, [Modal]);
 
-  const openModal = (modal: ReactElement) => {
-    LastFocusedElement.current = document.activeElement as HTMLElement;
-    setModal(modal);
-  };
+  const openModal = useCallback(
+    (modal: ReactElement) => {
+      LastFocusedElement.current = document.activeElement as HTMLElement;
+      setModal(modal);
+    },
+    [setModal]
+  );
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setModal(null);
     LastFocusedElement.current?.focus();
-  };
+  }, [setModal]);
 
   return (
     <ModalContext.Provider
