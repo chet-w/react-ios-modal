@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
-import Body from "../../components/Body";
-import WithTheme from "../utils/WithTheme";
+import Body from "../";
+import WithTheme from "../../../test-utilities/WithTheme";
 
 const renderBody = (children?: JSX.Element[] | JSX.Element | string) => {
   const { container } = render(

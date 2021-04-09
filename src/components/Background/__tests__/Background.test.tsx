@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { AnimatePresence } from "framer-motion";
-import Background from "../../components/Background";
-import WithTheme from "../utils/WithTheme";
+import Background from "../";
+import WithTheme from "../../../test-utilities/WithTheme";
 
 const renderBackground = (props = {}) => {
   const { container } = render(

@@ -1,7 +1,7 @@
 import { fireEvent, render } from "@testing-library/react";
-import Header from "../../components/Header";
-import { HeaderProps } from "../../components/Header/types";
-import WithTheme from "../utils/WithTheme";
+import Header from "../";
+import { HeaderProps } from "../types";
+import WithTheme from "../../../test-utilities/WithTheme";
 
 const renderHeader = (props?: HeaderProps) => {
   props = props || { id: "test", title: "test", onClose: () => {} };
