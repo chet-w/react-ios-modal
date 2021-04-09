@@ -1,4 +1,10 @@
-import { fireEvent, render } from "@testing-library/react";
+import {
+  fireEvent,
+  getByTestId,
+  prettyDOM,
+  render,
+  waitFor
+} from "@testing-library/react";
 import Modal from "../";
 import { ModalProps } from "../types";
 import WithTheme from "../../../test-utilities/WithTheme";
@@ -17,5 +23,11 @@ describe("Modal", () => {
   it("renders successfully", () => {
     const modal = renderModal();
     expect(modal).toBeTruthy();
+  });
+
+  it("has the correct mobile styling", () => {
+    const background = renderModal().firstElementChild as HTMLElement;
+    const styles = getComputedStyle(background);
+    expect(styles).toMatchSnapshot();
   });
 });
