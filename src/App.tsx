@@ -7,16 +7,10 @@ function App() {
       id="demo-modal"
       title="A demo modal"
       closable
-      onClose={(event) => console.log("onClose!")}
+      onClose={() => console.log("onClose!")}
       clickOutsideToClose
     >
-      <p>Content!</p>
-      <button>one</button>
-      <button>one</button>
-      <button>one</button>
-      <button>one</button>
-      <button>one</button>
-      <button>one</button>
+      <p>Whatever modal content you want</p>
     </Modal>
   );
 

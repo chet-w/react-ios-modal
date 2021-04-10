@@ -7,3 +7,8 @@ export interface ModalContextProps {
 export interface ModalProviderProps {
   children?: JSX.Element;
 }
+
+export interface ToggleBorderRadiusOptions {
+  target: HTMLElement;
+  apply?: boolean;
+}

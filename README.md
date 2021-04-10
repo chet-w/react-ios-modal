@@ -1,46 +1,129 @@
-# Getting Started with Create React App
+# React iOS Modal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Am accessible Modal component made to bring the style and experience of iOS's modals to the web
 
-## Available Scripts
+- 🥇 Animated
+- ♿️ Accessible
+- 📱 Responsive
+- 🎣 Made with React Hooks
 
-In the project directory, you can run:
+#### On an iPhone SE equivalent screen
 
-### `yarn start`
+<p align="center">
+  <img src="https://github.com/chet-w/react-ios-modal/blob/master/public/mobile-demo.gif"/>
+</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### On Desktop
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+  <img src="https://github.com/chet-w/react-ios-modal/blob/master/public/desktop-demo.gif"/>
+</p>
 
-### `yarn test`
+#### Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[link to demo]
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To install the package, install it as a dependency using either yarn or npm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# with yarn
+$ yarn add react-ios-modal
 
-### `yarn eject`
+# with npm
+$ npm install react-ios-modal
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`react-ios-modal` relies on using Context to handle summoning the Modal, and Hooks to manage setting the Content to whatever to you want.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Wrap your app in a `ModalProvider`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```tsx
+// index.tsx or as high up in yout component tree as you want
 
-## Learn More
+import { ModalProvider } from "react-ios-modal";
+import App from "./App";
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const MyApp = (): React.FC => (
+  <ModalProvider>
+    <App />
+  </ModalProvider>
+);
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Once your app is a child of `ModalProvider`, you have access to the `useModal` hook, which lets you open, close, and set the content of the Modal.
+
+3. Create your Modal as separate Component, and pass it in to the `openModal` function returned from `useModal`.
+
+```tsx
+// App.tsx
+import { Modal, useModal } from "react-ios-modal";
+
+const App = (): React.FC => {
+  const { openModal } = useModal();
+
+  return (
+    <div>
+      <p>Some content for my app.</p>
+      <button type="button" onClick={() => openModal(<MyModal />)}>
+        Open Modal
+      </button>
+    </div>
+  );
+};
+
+const MyModal = (): React.FC => {
+  <Modal id="demo-modal" title="A demo modal">
+    <p>My first Modal</p>
+  </Modal>;
+};
+```
+
+## Configuration
+
+| Prop                  | Description                                                                                          | Required | Default     |
+| --------------------- | ---------------------------------------------------------------------------------------------------- | -------- | ----------- |
+| `id`                  | A unique identifier. It is used mainly for accessibility to describe connected elements in the Modal | `true`   |             |
+| `title`               | The title that goes in the header                                                                    | `true`   |             |
+| `closable`            | Whether or not a close button appears in the Header                                                  | `false`  | `true`      |
+| `onClose`             | Function to call when closed via click outside or close button                                       | `false`  | `undefined` |
+| `clickOutsideToClose` | Whether or not you can close the Modal by clicking the background                                    | `false`  | `true`      |
+
+## Contributing
+
+The project is fully open to contributions. The goal of the project is to bring the UX of the iOS Modal to the web as best as possible, while making it as easy to use for React develoers as possible.
+
+The repo was initialised with Create React App.
+
+To get set up for development
+
+1. Clone the repo
+
+```bash
+$ git clone git@github.com:chet-w/react-ios-modal.git
+```
+
+2. `cd` into the directory
+
+```bash
+$ cd react-ios-modal
+```
+
+3. Install dependencies
+
+```bash
+$ yarn
+```
+
+🚀 You can now run the demo app on [http://localhost:3000](localhost:3000).
+
+4. Run the tests
+
+```bash
+$ yarn test
+```
