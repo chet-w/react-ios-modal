@@ -7,4 +7,7 @@
 - 📱 ↔️ 🖥 Responsive
 - ⚛️ ➕ 🎣 Made with React Hooks
 
-<img src="https://github.com/chet-w/react-ios-modal/blob/master/public/mobile-demo.gif"/>
+<div style="display: flex;">
+  <img src="https://github.com/chet-w/react-ios-modal/blob/feature/readme_updates/public/mobile-demo.gif"/>
+  <img src="https://github.com/chet-w/react-ios-modal/blob/feature/readme_updates/public/desktop-demo.gif"/>
+</div>
