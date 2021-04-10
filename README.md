@@ -4,8 +4,8 @@
 
 - 🥇 Animated
 - ♿️ Accessible
-- 📱 ↔️ 🖥 Responsive
-- ⚛️ ➕ 🎣 Made with React Hooks
+- 📱 Responsive
+- 🎣 Made with React Hooks
 
 <div style="display: flex;">
   <img src="https://github.com/chet-w/react-ios-modal/blob/feature/readme_updates/public/mobile-demo.gif"/>
