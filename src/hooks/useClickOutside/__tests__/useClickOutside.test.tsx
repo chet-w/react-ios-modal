@@ -1,9 +1,4 @@
-import {
-  render,
-  fireEvent,
-  prettyDOM,
-  getByTestId
-} from "@testing-library/react";
+import { render, fireEvent, getByTestId } from "@testing-library/react";
 import { useRef } from "react";
 import { useClickOutside } from "../..";
 
