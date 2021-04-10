@@ -1,6 +1,5 @@
 import { ReactElement } from "react";
 
-export interface BackgroundProps {
-  isMobile?: boolean;
+export interface WithThemeProps {
   children?: ReactElement;
 }

@@ -10,13 +10,9 @@ const useFocusTrap = (
   const getKeyboardFocusableElements = (
     element: Document | HTMLElement | null = document
   ): HTMLElement[] => {
-    if (element) {
-      return Array.from(element.querySelectorAll(FOCUSABLE_SELECTORS)).filter(
-        (el) => !el.hasAttribute("disabled")
-      ) as HTMLElement[];
-    } else {
-      return [];
-    }
+    return Array.from(
+      (element || document).querySelectorAll(FOCUSABLE_SELECTORS)
+    ).filter((el) => !el.hasAttribute("disabled")) as HTMLElement[];
   };
 
   useKeyBinding("Tab", (event) => {
@@ -24,6 +20,7 @@ const useFocusTrap = (
       elementRef.current
     );
     if (!focusableElementsInComponent.length) {
+      event.preventDefault();
       return;
     }
 
@@ -48,7 +45,6 @@ const useFocusTrap = (
     if (elementRef.current) {
       const target = elementRef.current;
       const targetLabel = target.getAttribute("aria-labelledby");
-      console.log(targetLabel);
       if (targetLabel) {
         (elementRef.current.querySelector(
           `#${targetLabel}`
@@ -58,9 +54,6 @@ const useFocusTrap = (
   }, [elementRef]);
 
   useEffect(() => {
-    if (!elementRef) {
-      return;
-    }
     focusHeader();
   }, [elementRef, focusHeader]);
 };
