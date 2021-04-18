@@ -1,0 +1,23 @@
+name: "CI/CD"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: unbuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.1.1
+      - name: Setup node
+        uses: actions/setup-node@1.4.2
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+      - name: Publish
+        run: yarn publish
+        working-directory: package
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
