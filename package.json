@@ -7,7 +7,7 @@
   "files": [
     "package/index.ts"
   ],
-  "version": "0.1.1",
+  "version": "0.0.3",
   "dependencies": {
     "framer-motion": "^4.0.3",
     "phosphor-react": "^1.2.1",
