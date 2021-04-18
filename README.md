@@ -21,7 +21,7 @@
 
 #### Demo
 
-[link to demo]
+https://react-ios-modal.netlify.app/
 
 ---
 
