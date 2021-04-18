@@ -1,7 +1,6 @@
 {
-  "name": "modal",
+  "name": "react-ios-modal",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "framer-motion": "^4.0.3",
     "phosphor-react": "^1.2.1",
@@ -9,7 +8,6 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "styled-components": "^5.2.1",
-    "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -44,6 +42,7 @@
     "@types/styled-components": "^5.1.9",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0"
+    "@types/react-dom": "^17.0.0",
+    "typescript": "^4.1.2"
   }
 }
