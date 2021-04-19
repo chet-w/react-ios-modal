@@ -1,21 +1,24 @@
 name: "CI/CD"
 
+# on:
+#   release:
+#     types: [published]
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - "**" # matches every branch
 
 jobs:
   test:
     name: Publish
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2.1.1
-      - name: Setup node
-        uses: actions/setup-node@v1.4.2
+      - name: Checkout branch
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org
+          node-version: 14
       - name: Publish
         run: yarn publish
         env:
