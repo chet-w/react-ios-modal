@@ -4,6 +4,9 @@
     "type": "git",
     "url": "https://github.com/chet-w/react-ios-modal"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "files": [
     "package/index.ts"
   ],
