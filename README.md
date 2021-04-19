@@ -31,10 +31,10 @@ To install the package, install it as a dependency using either yarn or npm
 
 ```bash
 # with yarn
-$ yarn add react-ios-modal
+$ yarn add @chet-w/react-ios-modal
 
 # with npm
-$ npm install react-ios-modal
+$ npm install @chet-w/react-ios-modal
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ $ npm install react-ios-modal
 ```tsx
 // index.tsx or as high up in yout component tree as you want
 
-import { ModalProvider } from "react-ios-modal";
+import { ModalProvider } from "@chet-w/react-ios-modal";
 import App from "./App";
 
 const MyApp = (): React.FC => (
@@ -62,7 +62,7 @@ const MyApp = (): React.FC => (
 
 ```tsx
 // App.tsx
-import { Modal, useModal } from "react-ios-modal";
+import { Modal, useModal } from "@chet-w/react-ios-modal";
 
 const App = (): React.FC => {
   const { openModal } = useModal();
