@@ -20,7 +20,6 @@ jobs:
         with:
           node-version: 14
           always-auth: true
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
       - name: Publish
         run: yarn publish
         env:
